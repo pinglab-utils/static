@@ -1,0 +1,425 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Better Google Charts styles by Weekdone</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+
+<body>
+
+
+  <!-- example charts - dark -->
+  <div class="block">
+    <div class="container">
+      <div class="span4">
+        <h2>SteppedAreaChart</h2>
+        <div id="steppedareachart" class="chart" class="chart"></div>  
+      </div>
+      <div class="span4">
+        <h2>Areachart</h2>
+        <div id="areachart" class="chart"></div>
+      </div>
+      <div class="span4">
+        <h2>Columnchart</h2>
+        <div id="columnchart" class="chart"></div>
+      </div>
+      <div class="span4">
+        <h2>Our Visitors</h2>
+        <div id="geochart" class="chart"></div>
+      </div>
+      <div class="span4">
+        <h2>PieChart</h2>
+        <div id="piechart" class="chart"></div>      
+      </div>
+      <div class="span4">
+        <h2>LineChart</h2>
+        <div id="linechart" class="chart"></div>      
+      </div>
+    </div>
+  </div>
+
+  <!-- example charts - light -->
+  <div class="block light">
+    <div class="container">
+
+ <!--
+      <div class="span4">
+        <h2>SteppedAreaChart</h2>
+        <div id="steppedareachartlight" class="chart"></div>  
+      </div>
+-->
+
+      <div class="span4">
+        <h2>Table</h2>
+        <div id="table_div" class="table"></div>  
+      </div>
+       <div class="span4">
+        <h2>ICD11 Codes</h2>
+        <div id="piechartlight" class="chart"></div>      
+      </div>
+      <div class="span4">
+        <h2>Bar</h2>
+        <div id="barchart_div" class="chart"></div>
+      </div>
+      <div class="span4">
+        <h2>Columnchart</h2>
+        <div id="columnchartlight" class="chart"></div>
+      </div>
+      <div class="span4">
+        <h2>Our Visitors</h2>
+        <div id="geochartlight" class="chart"></div>
+      </div>
+      <div class="span4">
+        <h2>LineChart</h2>
+        <div id="linechartlight" class="chart"></div>      
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+
+
+
+  google.load("visualization", "1", {packages:["geochart", "bar","table", "corechart"]});
+      google.setOnLoadCallback(drawChart);
+
+
+
+  function drawChart() {
+    // just example data for example charts
+    var geodata = google.visualization.arrayToDataTable([
+      ['Country', 'Paying users'],
+      ['Germany', 200],
+      ['United States', 300],
+      ['Brazil', 400],
+      ['Canada', 500],
+      ['France', 600],
+      ['RU', 700]
+      ]);
+    var data2 = google.visualization.arrayToDataTable([
+      ['MRR', 'Revenue', 'Cashbase', 'Churn', 'Costs' ],
+      ['1-8 jan',   800,  1200, -200, -1200],
+      ['9-15 jan',  500,  1500, -500, -1200],
+      ['16-23 jan', 900,  1100, -100, -1200],
+      ['24-31 jan', 200,  1800, -800, -1200],
+      ['1-8 jan',   500,  1500, -500, -1200],
+      ['9-15 jan',  700,  1300, -300, -1200],
+      ['16-23 jan', 600,  1400, -400, -1200] 
+      ]);
+    var idata = google.visualization.arrayToDataTable([
+      ['Disease', 'Second Level', 'Third Level', 'Fourth Level', 'Fifth Level', 'Sixth Level', 'Seventh Level', 'Eighth Level', 'Ninth Level', 'Tenth Level', 'Eleventh Level', 'Twelvth Level', 'Thirteenth Level'],
+      ['Diseases of the ear or mastoid process', 8,50,143,136,120,51,4,0,0,0,0,0],
+      ['Factors influencing health status or contact with health services', 2,38,236,545,343,130,22,7,0,0,0,0],
+      ['Diseases of the digestive system', 20,151,698,1039,724,255,54,0,0,0,0,0],
+      ['Certain conditions originating in the perinatal period', 14,138,414,196,69,18,7,4,0,0,0,0],
+      ['Certain infectious or parasitic diseases', 26,242,759,796,567,239,128,65,25,0,0,0],
+      ['Diseases of the musculoskeletal system or connective tissue', 13,49,214,670,1133,1217,362,68,0,0,0,0],
+      ['Codes for special purposes', 2,17,0,0,0,0,0,0,0,0,0,0],
+      ['Neoplasms',8,132,316,606,732,601,123,18,0,0,0,0],
+      ['Diseases of the skin', 18,49,278,922,930,456,178,79,16,28,0,0],
+      ['Diseases of the blood or blood-forming organs',6,40,169,370,280,128,89,10,1,0,0,0],
+      ['Special Views',3,28,20,169,426,639,661,462,266,101,70,25],
+      ['Symptoms, signs or clinical findings, not elsewhere classified', 16,59,446,689,675,252,142,33,10,0,0,0],
+      ['Diseases of the immune system',9,45,169,353,395,262,44,6,0,0,0,0],
+      ['Diseases of the respiratory system',14,97,373,543,436,71,6,0,0,0,0,0],
+      ['Developmental anomalies',5,35,303,1298,1071,568,188,67,13,5,0,0],
+      ['Supplementary section for functioning assessment', 3,25,54,6,0,0,0,0,0,0,0,0],
+      ['Sleep-wake disorders', 6,36,37,3,0,0,0,0,0,0,0,0],
+      ['Diseases of the genitourinary system', 9,90,406,760,844,359,106,39,0,0,0,0],
+      ['Mental, behavioural or neurodevelopmental disorders', 24,123,276,491,882,19,0,0,0,0,0,0],
+      ['Diseases of the circulatory system',24,156,550,700,523,253,112,38,13,5,0,0],
+      ['Injury, poisoning or certain other consequences of external causes',19,184,1010,1804,585,268,39,9,0,0,0,0],
+      ['Conditions related to sexual health', 10,62,94,145,192,109,40,26,0,0,0,0],
+      ['Pregnancy, childbirth or the puerperium',11,97,385,221,76,7,0,0,0,0,0,0],
+      ['Traditional Medicine conditions - Module I',2,16,86,280,56,3,0,0,0,0,0,0],
+      ['External causes of morbidity or mortality',10,77,332,644,1591,1064,30,0,0,0,0,0],
+      ['Diseases of the visual system', 7, 50, 194, 575, 890, 780, 358, 145, 30, 0, 0, 0]
+      ]);
+
+    var bardata = new google.visualization.DataTable();
+       bardata.addColumn('string', 'Topping');
+       bardata.addColumn('number', 'Slices');
+       bardata.addRows([
+          ['Diseases of the ear or mastoid process', 513],
+          ['Factors influencing health status or contact with health services', 1324],
+          ['Diseases of the digestive system',  2942],
+          ['Certain conditions originating in the perinatal period', 861],
+          ['Certain infectious or parasitic diseases', 2848],
+          ['Diseases of the musculoskeletal system or connective tissue', 3727],
+          ['Codes for special purposes', 20],
+          ['Neoplasms', 2537],
+          ['Diseases of the skin', 2955],
+          ['Diseases of the blood or blood-forming organs', 1094],
+          ['Special Views', 2871],
+          ['Symptoms, signs or clinical findings, not elsewhere classified', 2323],
+          ['Diseases of the immune system', 1284],
+          ['Diseases of the respiratory system', 1541],
+          ['Developmental anomalies', 3554],
+          ['Supplementary section for functioning assessment', 89],
+          ['Sleep-wake disorders', 83],
+          ['Diseases of the genitourinary system', 2614],
+          ['Mental, behavioural or neurodevelopmental disorders', 1816],
+          ['Diseases of the circulatory system', 2375],
+          ['Injury, poisoning or certain other consequences of external causes', 3919],
+          ['Conditions related to sexual health', 679],
+          ['Pregnancy, childbirth or the puerperium', 798],
+          ['Traditional Medicine conditions - Module I', 444],
+          ['External causes of morbidity or mortality', 3749],
+          ['Diseases of the visual system', 3030]
+      ]);
+      
+
+    var linechartdata = google.visualization.arrayToDataTable([
+      ['Day', 'New visitors'],
+      ['1 june',   Math.round(Math.random()*100+100)], 
+      ['2 june',   Math.round(Math.random()*100+100)], 
+      ['3 june',   Math.round(Math.random()*100+100)], 
+      ['4 june',   Math.round(Math.random()*100+100)], 
+      ['5 june',   Math.round(Math.random()*100+100)], 
+      ['6 june',   Math.round(Math.random()*100+100)], 
+      ['7 june',   Math.round(Math.random()*100+100)], 
+      ['8 june',   Math.round(Math.random()*100+100)], 
+      ]);
+    var data3 = google.visualization.arrayToDataTable([
+      ['Day', 'Total', 'Web', 'iOS', 'Android'],
+      ['18',   1200,  500, 100, 600],
+      ['19',  2500,  900, 800, 800],
+      ['20',     2000,  700, 300, 1000],
+      ['21',     1200,  500, 200, 400],
+      ['22',        700,  200, 100, 400],
+      ['23',       800,  400, 100, 300],
+      ['24',   1200,  500, 100, 600],
+      ['25',  2500,  900, 800, 800],
+      ['26',     2000,  700, 300, 1000],
+      ['27',     1200,  500, 200, 400],
+      ['28',        700,  200, 100, 400],
+      ['29',       800,  400, 100, 300],        
+      ]);
+    var annualgrowthdata = google.visualization.arrayToDataTable([
+      ['Month', 'Paying Companies', 'Users at paying', 'Monthly revenue $'],
+      ['J',   400,  4500, 35000],
+      ['F',   500,  5500, 45000],
+      ['M',   550,  6500, 55000],
+      ['A',   600,  7500, 65000],
+      ['M',   800,  8500, 75000],
+      ['J',   800,  9500, 85000],
+      ['J',   900,  10500, 95000],
+      ['A',   1000,  11500, 105000],
+      ['S',  1200,  12500, 115000],
+      ['O',   1500,  13500, 125000],
+      ['N',   1600,  14500, 135000],
+      ['D',   1620,  15500, 145000]
+      ]);
+
+    var piedata = google.visualization.arrayToDataTable([
+      ['Name', 'Count'],
+      ['Certain infectious or parasitic diseases',   10],
+      ['Neoplasms',   5],
+      ['Diseases of the blood or blood-forming organs',   15], 
+      ['Diseases of the immune system',   5],
+      ['Endocrine, nutritional or metabolic diseases',   10],
+      ['Mental, behavioural or neurodevelopmental Disease disorders',   5],
+      ['Sleep-wake disorders',   15], 
+      ['Diseases of the nervous system',   5],
+      ['Diseases of the visual system',   10],
+      ['Diseases of the ear or mastoid process',  5],
+      ['Diseases of the circulatory system',  5], 
+      ['Diseases of the respiratory system',  10]
+      ]);
+
+    var tdata = new google.visualization.DataTable();
+        tdata.addColumn('string', 'Root');
+        tdata.addColumn('number', '1st Level');
+        tdata.addColumn('number', '2nd Level');
+        tdata.addColumn('number', '3rd Level');
+        tdata.addColumn('number', '4th Level');
+        tdata.addColumn('number', '5th Level');
+        tdata.addColumn('number', '6th Level');
+        tdata.addColumn('number', '7th Level');
+        tdata.addColumn('number', '8th Level');
+        tdata.addColumn('number', '9th Level');
+        tdata.addColumn('number', '10th Level');
+        tdata.addColumn('number', '11th Level');
+        tdata.addColumn('number', '12th Level');
+        tdata.addRows([
+          ['1218729044', 8, 50, 143, 136, 120, 51, 4, 0, 0, 0, 0, 0],
+          ['1249056269', 2, 38, 236, 545, 343, 130, 22, 7, 0, 0, 0, 0],
+          ['1256772020', 20, 151, 698, 1039, 724, 255, 54, 0, 0, 0, 0, 0],
+          ['1306203631', 14, 138, 414, 196, 69, 18, 7, 4, 0, 0, 0, 0],
+          ['1435254666', 26, 242, 759, 796, 567, 239, 128, 65, 25, 0, 0, 0],
+          ['1473673350', 13, 49, 214, 670, 1133, 1217, 362, 68, 0, 0, 0, 0],
+          ['1596590595', 2, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          ['1630407678', 8, 132, 316, 606, 732, 601, 123, 18, 0, 0, 0, 0],
+          ['1639304259', 18, 49, 278, 922, 930, 456, 178, 79, 16, 28, 0, 0],
+          ['1766440644', 6, 40, 169, 370, 280, 128, 89, 10, 1, 0, 0, 0],
+          ['1801349023', 3, 28, 20, 169, 426, 639, 661, 462, 266, 101, 70, 25],
+          ['1843895818', 16, 59, 446, 689, 675, 252, 142, 33, 10, 0, 0, 0],
+          ['1954798891', 9, 45, 169, 353, 395, 262, 44, 6, 0, 0, 0, 0],
+          ['197934298', 14, 97, 373, 543, 436, 71, 6, 0, 0, 0, 0, 0],
+          ['223744320', 5, 35, 303, 1298, 1071, 568, 188, 67, 13, 5, 0, 0],
+          ['231358748', 3, 25, 54, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+          ['274880002', 6, 36, 37, 3, 0, 0, 0, 0, 0, 0, 0, 0],
+          ['30659757', 9, 90, 406, 760, 844, 359, 106, 39, 0, 0, 0, 0],
+          ['334423054', 24, 123, 276, 491, 882, 19, 0, 0, 0, 0, 0, 0],
+          ['426429380', 24, 156, 550, 700, 523, 253, 112, 38, 13, 5, 0, 0],
+          ['435227771', 19, 184, 1010, 1804, 585, 268, 39, 9, 0, 0, 0, 0],
+          ['577470983', 10, 62, 94, 145, 192, 109, 40, 26, 0, 0, 0, 0],
+          ['714000734', 11, 97, 385, 221, 76, 7, 0, 0, 0, 0, 0, 0],
+          ['718687701', 2, 16, 86, 280, 56, 3, 0, 0, 0, 0, 0, 0],
+          ['850137482', 10, 77, 332, 644, 1591, 1064, 30, 0, 0, 0, 0, 0],
+          ['868865918', 7, 50, 194, 575, 890, 780, 358, 145, 30, 0, 0, 0]
+        ]);
+
+/*!
+ * The actual options
+ * Copy and paste to your existing chart
+ *
+ * They come in light and dark varieties
+ */
+ var optionsdark = {
+  hAxis: {
+    titleTextStyle: {color: '#607d8b'}, 
+    gridlines: { count:0}, 
+    textStyle: { color: '#b0bec5', fontName: 'Roboto', fontSize: '12', bold: true}
+  },
+  vAxis: {
+    minValue: 0, 
+    gridlines: {color:'#37474f', count:4}, 
+    baselineColor: 'transparent'
+  },
+  legend: {position: 'top', alignment: 'center', textStyle: {color:'#607d8b', fontName: 'Roboto', fontSize: '12'} },
+  colors: ["#3f51b5","#2196f3","#03a9f4","#00bcd4","#009688","#4caf50","#8bc34a","#cddc39"],
+  areaOpacity: 0.24,
+  lineWidth: 1,
+  backgroundColor: 'transparent',
+  chartArea: {
+    backgroundColor: "transparent",
+    width: '100%',
+    height: '80%'
+  },
+      height:200, // example height, to make the demo charts equal size
+      width:400,
+      pieSliceBorderColor: '#263238',
+      pieSliceTextStyle:  {color:'#607d8b' },
+      pieHole: 0.7,
+      bar: {groupWidth: "40" },
+      colorAxis: {colors: ["#3f51b5","#2196f3","#03a9f4","#00bcd4"] },
+      backgroundColor: 'transparent',
+      datalessRegionColor: '#37474f',
+      displayMode: 'regions'
+    };
+
+    // options for light backgrounds, makes use of general styles applied to dark
+    var optionslight = $.extend(true, {}, optionsdark);
+    optionslight['legend']['textStyle'] = {color:'#607d8b'};
+    optionslight['hAxis']['textStyle'] = { color: '#78909c', fontName: 'Roboto', fontSize: '12', bold: true};
+    optionslight['vAxis']['gridlines'] = {color:'#cfd8dc'};
+    optionslight['datalessRegionColor'] = {color:'#f00'};
+    optionslight['pieSliceBorderColor'] = {color:'#eceff1'};
+    // different colors, just to make demo more interesting
+    /*
+    optionslight['colors'] = ["#f44336","#e91e63","#9c27b0","#673ab7","#3f51b5","#2196f3","#03a9f4","#00bcd4","#009688","#4caf50","#8bc34a","#cddc39"];
+    optionslight['colorAxis'] = {colors: ["#f44336","#e91e63","#9c27b0","#673ab7"] };
+    */
+
+/*!
+ * End options
+ *
+ */
+
+
+// draw the demo charts
+var timeout = 200;
+// dark demo charts
+var chart = new google.visualization.AreaChart(document.getElementById('areachart'));
+chart.draw(data2, optionsdark);
+setTimeout(function(){
+  var chart = new google.visualization.LineChart(document.getElementById('linechart'));
+  chart.draw(linechartdata, optionsdark);
+}, timeout*2);
+setTimeout(function(){
+  var chart = new google.visualization.SteppedAreaChart(document.getElementById('steppedareachart'));
+  chart.draw(idata, optionsdark);
+}, timeout*3);
+setTimeout(function(){
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(piedata, optionsdark);
+}, timeout*4);
+setTimeout(function(){
+  var chart2 = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+  chart2.draw(data2, optionsdark);
+}, timeout*5);
+setTimeout(function(){
+  optionsdark.legend = 'none'; // remove legend from maps
+  var chart = new google.visualization.GeoChart(document.getElementById('geochart'));
+  chart.draw(geodata, optionsdark);
+}, timeout*6);
+
+
+
+
+// light demo charts
+setTimeout(function(){
+  var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
+  barchart.draw(bardata, optionslight);
+}, timeout*7);
+
+
+setTimeout(function(){
+  var chart = new google.visualization.LineChart(document.getElementById('linechartlight'));
+  chart.draw(linechartdata, optionslight);
+}, timeout*8);
+
+
+/*
+setTimeout(function(){
+  var chart = new google.visualization.SteppedAreaChart(document.getElementById('steppedareachartlight'));
+  chart.draw(idata, optionslight);
+}, timeout*9);
+*/
+
+
+
+setTimeout(function(){
+  var table = new google.visualization.Table(document.getElementById('table_div'));
+  table.draw(tdata, {showRowNumber: true, width: '100%', height: '100%'},optionslight);
+}, timeout*9);
+
+
+
+
+setTimeout(function(){
+  var chart = new google.visualization.PieChart(document.getElementById('piechartlight'));
+  chart.draw(piedata, optionslight);
+}, timeout*10);
+setTimeout(function(){
+  var chart2 = new google.visualization.ColumnChart(document.getElementById('columnchartlight'));
+  chart2.draw(data2, optionslight);
+}, timeout*11);
+setTimeout(function(){
+  optionslight.legend = 'none'; // remove legend from maps
+  var chart = new google.visualization.GeoChart(document.getElementById('geochartlight'));
+  chart.draw(geodata, optionslight);
+}, timeout*12);
+}
+
+
+$(window).resize(function(){
+  drawChart();
+});
+</script>
+</body>
+</html>
